@@ -39,48 +39,366 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Intersection Observer for Animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+// Product Modal Functionality
+const modal = document.getElementById('product-modal');
+const modalTitle = document.getElementById('modal-product-title');
+const modalDescription = document.getElementById('modal-product-description');
+const modalImage = document.getElementById('modal-product-image');
+const modalDetails = document.getElementById('modal-product-details');
+const modalOriginalPrice = document.getElementById('modal-original-price');
+const modalSalePrice = document.getElementById('modal-sale-price');
+const modalOffersInfo = document.getElementById('modal-offers-info');
+const closeModal = document.querySelector('.close-modal');
+
+// Product Data
+const products = {
+    khamrah: {
+        title: 'Khamrah',
+        description: 'عطر شرقي سبايسي للجنسين مع مزيج فريد من الروائح الشرقية والخشبية',
+        image: 'images/khamrah.jpg',
+        details: [
+            'النوع: شرقي سبايسي للجنسين',
+            'المقدمة: قرفة - جوزة الطيب - برغموت',
+            'القلب: تمر - براالين - مسك - زهور - توباكو',
+            'القاعدة: فانيليا - عنبر - تونكا - مر - باتشولي',
+            'الرائحة: حلوة شرقية - دافئة',
+            'الثبات: ممتاز جدًا (8–10 ساعات)'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات',
+            'عرض الهدية مع كل طلب فوق 500 جنيه'
+        ]
+    },
+    bianco_latte: {
+        title: 'Bianco Latte',
+        description: 'عطر غورماند كريمي للجنسين مع نفحات من الفانيليا والكراميل',
+        image: 'images/bianco_latte.jpg',
+        details: [
+            'النوع: غورماند كريمي للجنسين',
+            'المكونات: كراميل - عسل - فانيليا - مسك أبيض - كومارين',
+            'الرائحة: حليب كراميل غني',
+            'الثبات: ممتاز جدًا - يدوم ليوم كامل'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    },
+    acqua_di_gio: {
+        title: 'Acqua di Giò',
+        description: 'عطر أكواتيك أروماتيك رجالي منعش وأنيق',
+        image: 'images/acqua_di_gio.jpg',
+        details: [
+            'النوع: أكواتيك أروماتيك رجالي',
+            'المقدمة: ليمون - ماندرين - نيرولي',
+            'القلب: روزماري - سالفيا - ياسمين',
+            'القاعدة: باتشولي - مسك - أخشاب دافئة',
+            'الرائحة: منعشة، صيفية، أنيقة',
+            'الثبات: متوسط إلى جيد (5–7 ساعات)'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    },
+    baccarat_rouge: {
+        title: 'Baccarat Rouge 540',
+        description: 'عطر عنبري خشبي زهري للجنسين مع لمسة من الفخامة',
+        image: 'images/baccarat_rouge.jpg',
+        details: [
+            'النوع: عنبري خشبي زهري للجنسين',
+            'المقدمة: زعفران - ياسمين',
+            'القلب: عنبر رمادي - خشب الأرز',
+            'القاعدة: راتنجات - مسك',
+            'الرائحة: حلوة عنبرية - مميزة جدًا',
+            'الثبات: قوي جدًا وفوّاح (10+ ساعات)'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    },
+    le_beau: {
+        title: 'Le Beau Le Parfum',
+        description: 'عطر خشبي فانيليا أروماتيك رجالي مع لمسة أنيقة',
+        image: 'images/le_beau.jpg',
+        details: [
+            'النوع: خشبي فانيليا أروماتيك رجالي',
+            'المقدمة: أناناس - إبرة الراعي - زنجبيل',
+            'القلب: جوز الهند - أخشاب - العنبر',
+            'القاعدة: فانيليا - خشب الصندل - التونكا',
+            'الرائحة: فاكهية ناعمة مع لمسة فاخرة',
+            'الثبات: ممتاز'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    },
+    althair: {
+        title: 'Althair',
+        description: 'عطر شرقي فانيليا رجالي مع لمسة دافئة وجذابة',
+        image: 'images/althair.jpg',
+        details: [
+            'النوع: شرقي فانيليا رجالي',
+            'المقدمة: فانيليا - برغموت - قرفة',
+            'القلب: مسك - الباتشولي - الخشب',
+            'القاعدة: فانيليا غنية - عنبر - تونكا',
+            'الرائحة: فانيليا فاخرة رجولية',
+            'الثبات: ممتاز وفاخر'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    },
+    black_xs: {
+        title: 'Black XS',
+        description: 'عطر خشبي أروماتيك رجالي مع لمسة داكنة وجذابة',
+        image: 'images/black_xs.jpg',
+        details: [
+            'النوع: خشبي أروماتيك رجالي',
+            'المقدمة: ليمون - القرفة',
+            'القلب: التوليب الأسود - البخور - البراالين',
+            'القاعدة: أخشاب داكنة - العنبر',
+            'الرائحة: حلوة داكنة - شبابية',
+            'الثبات: جيد جدًا'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    },
+    sauvage: {
+        title: 'Sauvage',
+        description: 'عطر أروماتيك فريش رجالي مع لمسة منعشة وقوية',
+        image: 'images/sauvage.jpg',
+        details: [
+            'النوع: أروماتيك فريش رجالي',
+            'المقدمة: البرغموت',
+            'القلب: فلفل - لافندر',
+            'القاعدة: أمبروكسان - باتشولي - أخشاب',
+            'الرائحة: قوية، ذكورية، منعشة',
+            'الثبات: ممتاز جدًا'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    },
+    one_million: {
+        title: 'One Million',
+        description: 'عطر أروماتيك سبايسي حلو رجالي مع لمسة جذابة',
+        image: 'images/one_million.jpg',
+        details: [
+            'النوع: أروماتيك سبايسي حلو رجالي',
+            'المقدمة: ماندارين - نعناع',
+            'القلب: القرفة - الورد',
+            'القاعدة: عنبر - جلد - أخشاب',
+            'الرائحة: حلوة جذابة',
+            'الثبات: قوي جدًا'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    },
+    ultra_male: {
+        title: 'Ultra Male',
+        description: 'عطر فواكه أروماتيك رجالي مع لمسة شبابية',
+        image: 'images/ultra_male.jpg',
+        details: [
+            'النوع: فواكه أروماتيك رجالي',
+            'المقدمة: كمثرى - لافندر - نعناع',
+            'القلب: قرفة - كمون',
+            'القاعدة: فانيليا - أخشاب - العنبر',
+            'الرائحة: جذابة شبابية',
+            'الثبات: ممتاز'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    },
+    good_girl: {
+        title: 'Good Girl',
+        description: 'عطر شرقي زهري نسائي مع لمسة مثيرة',
+        image: 'images/good_girl.jpg',
+        details: [
+            'النوع: شرقي زهري نسائي',
+            'المقدمة: قهوة - لوز - برغموت',
+            'القلب: ياسمين - مسك الروم',
+            'القاعدة: فانيليا - خشب الصندل - كاكاو',
+            'الرائحة: قوية، أنثوية، مثيرة',
+            'الثبات: ممتاز جدًا'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    },
+    burberry_her: {
+        title: 'Burberry Her',
+        description: 'عطر فاكهي زهري غورماند نسائي مع لمسة جذابة',
+        image: 'images/burberry_her.jpg',
+        details: [
+            'النوع: فاكهي زهري غورماند نسائي',
+            'المقدمة: فراولة - توت - كشمش أسود',
+            'القلب: البنفسج - الياسمين',
+            'القاعدة: مسك - عنبر - فانيليا - أخشاب',
+            'الرائحة: فاكهية حلوة جذابة',
+            'الثبات: جيد جدًا إلى ممتاز'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    },
+    musk_al_roman: {
+        title: 'Musk Al Roman',
+        description: 'عطر فاكهي مسكي للجنسين مع لمسة دافئة',
+        image: 'images/musk_al_roman.jpg',
+        details: [
+            'النوع: فاكهي مسكي للجنسين',
+            'المقدمة: رمان - كرز - توت - نعناع',
+            'القلب: عنب - ورد - توابل خفيفة',
+            'القاعدة: مسك - فانيليا - عسل - باتشولي',
+            'الرائحة: فاكهية دافئة',
+            'الثبات: جيد جدًا'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    },
+    yara: {
+        title: 'Yara',
+        description: 'عطر فاكهي زهري نسائي مع لمسة ناعمة',
+        image: 'images/yara.jpg',
+        details: [
+            'النوع: فاكهي زهري نسائي',
+            'المقدمة: أوركيد - ماندرين - زهور',
+            'القلب: جوز الهند - مسك',
+            'القاعدة: فانيليا - خشب الصندل - مسك',
+            'الرائحة: حلوة، ناعمة، أنثوية',
+            'الثبات: جيد جدًا'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    },
+    si: {
+        title: 'Si',
+        description: 'عطر فواكه زهري نسائي مع لمسة أنيقة',
+        image: 'images/si.jpg',
+        details: [
+            'النوع: فواكه زهري نسائي',
+            'المقدمة: الكشمش الأسود',
+            'القلب: ورد - فريزيا',
+            'القاعدة: فانيليا - باتشولي - أخشاب',
+            'الرائحة: ناعمة أنثوية - أنيقة',
+            'الثبات: متوسط إلى قوي'
+        ],
+        originalPrice: '350 جنيه',
+        salePrice: '249 جنيه',
+        offers: [
+            'عرض خاص: خصم 30% على الزجاجة الأولى',
+            'عرض التوصيل المجاني لجميع المحافظات'
+        ]
+    }
 };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+// Open Modal with Product Data
+document.querySelectorAll('.product-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const productId = button.getAttribute('data-product');
+        const product = products[productId];
+        
+        modalTitle.textContent = product.title;
+        modalDescription.textContent = product.description;
+        modalImage.src = product.image;
+        modalOriginalPrice.textContent = product.originalPrice;
+        modalSalePrice.textContent = product.salePrice;
+        
+        // Clear previous details
+        modalDetails.innerHTML = '';
+        modalOffersInfo.innerHTML = '';
+        
+        // Add product details
+        product.details.forEach(detail => {
+            const li = document.createElement('li');
+            li.textContent = detail;
+            modalDetails.appendChild(li);
+        });
+        
+        // Add offers if available
+        if (product.offers && product.offers.length > 0) {
+            const offersTitle = document.createElement('h4');
+            offersTitle.textContent = 'العروض المتاحة:';
+            modalOffersInfo.appendChild(offersTitle);
+            
+            const offersList = document.createElement('ul');
+            product.offers.forEach(offer => {
+                const li = document.createElement('li');
+                li.textContent = offer;
+                offersList.appendChild(li);
+            });
+            modalOffersInfo.appendChild(offersList);
         }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.querySelectorAll('.product-card, .offer-card, .about-content, .contact-content').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-});
-
-// Product Card Hover Effects
-document.querySelectorAll('.product-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1)';
+        
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
     });
 });
 
-// Offer Card Hover Effects
-document.querySelectorAll('.offer-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-5px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1)';
+// Close Modal
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+// Close Modal when clicking outside
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// CTA Button Click Handler
+document.querySelector('.cta-button').addEventListener('click', () => {
+    document.querySelector('#products').scrollIntoView({
+        behavior: 'smooth'
     });
 });
 
@@ -158,23 +476,6 @@ function showNotification(message, type = 'success') {
     }, 5000);
 }
 
-// CTA Button Click Handler
-document.querySelector('.cta-button').addEventListener('click', () => {
-    document.querySelector('#products').scrollIntoView({
-        behavior: 'smooth'
-    });
-});
-
-// Product Button Click Handlers
-document.querySelectorAll('.product-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const productCard = btn.closest('.product-card');
-        const productTitle = productCard.querySelector('.product-title').textContent;
-        showNotification(`تم عرض تفاصيل ${productTitle} من رُواء`, 'success');
-    });
-});
-
 // Parallax Effect for Hero Section
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
@@ -201,37 +502,6 @@ function addFloatingAnimation() {
         card.style.animationDelay = `${index * 0.2}s`;
     });
 }
-
-// CSS for floating animation
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes float {
-        0%, 100% {
-            transform: translateY(0px);
-        }
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-    
-    .product-card:hover {
-        animation-play-state: paused;
-    }
-    
-    @keyframes pulse {
-        0%, 100% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.05);
-        }
-    }
-    
-    .offer-card.popular {
-        animation: pulse 2s ease-in-out infinite;
-    }
-`;
-document.head.appendChild(style);
 
 // Initialize floating animation
 setTimeout(addFloatingAnimation, 1000);
@@ -351,4 +621,3 @@ function createCountdownTimer() {
 
 // Initialize countdown timer after 3 seconds
 setTimeout(createCountdownTimer, 3000);
-
