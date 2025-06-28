@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>رُواء - جمال أنيق يفوح عبقًا</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
@@ -25,7 +25,7 @@
                         <a href="#products" class="nav-link">المنتجات</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#offers" class="nav-link">العروض</a>
+                        <a href="#order" class="nav-link">كيفية الطلب</a>
                     </li>
                     <li class="nav-item">
                         <a href="#about" class="nav-link">من نحن</a>
@@ -48,7 +48,7 @@
         <div class="hero-content">
             <h1 class="hero-title">اكتشف عالم رُواء للعطور الفاخرة</h1>
             <p class="hero-subtitle">جمال أنيق يفوح عبقًا - براند مصري الأصل</p>
-            <button class="cta-button">تسوق الآن</button>
+            <button class="cta-button">تصفح العطور</button>
         </div>
         <div class="hero-image">
             <img src="images/ruwaa_bottle1.jpg" alt="عطور رُواء الفاخرة">
@@ -60,16 +60,17 @@
         <div class="container">
             <h2 class="section-title">اكتشف مجموعتنا الفاخرة من رُواء</h2>
             <div class="products-grid">
-                <div class="product-card" data-aos="fade-up">
+                <!-- Khamrah -->
+                <div class="product-card">
                     <div class="product-image">
-                        <img src="images/ruwaa_bottle1.jpg" alt="عطر الأناقة الخالدة">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Khamrah">
                         <div class="product-overlay">
-                            <button class="product-btn">عرض التفاصيل</button>
+                            <button class="product-btn" data-product="khamrah">عرض التفاصيل</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">عطر الأناقة الخالدة</h3>
-                        <p class="product-description">مزيج فريد من الروائح الشرقية والخشبية من رُواء</p>
+                        <h3 class="product-title">Khamrah</h3>
+                        <p class="product-description">عطر شرقي سبايسي للجنسين</p>
                         <div class="product-price">
                             <span class="original-price">350 جنيه</span>
                             <span class="sale-price">249 جنيه</span>
@@ -77,16 +78,17 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                <!-- Bianco Latte -->
+                <div class="product-card">
                     <div class="product-image">
-                        <img src="images/ruwaa_bottle1.jpg" alt="عطر السحر الشرقي">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Bianco Latte">
                         <div class="product-overlay">
-                            <button class="product-btn">عرض التفاصيل</button>
+                            <button class="product-btn" data-product="bianco_latte">عرض التفاصيل</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">عطر السحر الشرقي</h3>
-                        <p class="product-description">لمسة من الغموض والجاذبية من رُواء</p>
+                        <h3 class="product-title">Bianco Latte</h3>
+                        <p class="product-description">عطر غورماند كريمي للجنسين</p>
                         <div class="product-price">
                             <span class="original-price">350 جنيه</span>
                             <span class="sale-price">249 جنيه</span>
@@ -94,16 +96,233 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                <!-- Acqua di Giò -->
+                <div class="product-card">
                     <div class="product-image">
-                        <img src="images/ruwaa_bottle1.jpg" alt="عطر الانتعاش الصيفي">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Acqua di Giò">
                         <div class="product-overlay">
-                            <button class="product-btn">عرض التفاصيل</button>
+                            <button class="product-btn" data-product="acqua_di_gio">عرض التفاصيل</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">عطر الانتعاش الصيفي</h3>
-                        <p class="product-description">نفحات منعشة من الحمضيات والأزهار من رُواء</p>
+                        <h3 class="product-title">Acqua di Giò</h3>
+                        <p class="product-description">عطر أكواتيك أروماتيك رجالي</p>
+                        <div class="product-price">
+                            <span class="original-price">350 جنيه</span>
+                            <span class="sale-price">249 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Baccarat Rouge 540 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Baccarat Rouge 540">
+                        <div class="product-overlay">
+                            <button class="product-btn" data-product="baccarat_rouge">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Baccarat Rouge 540</h3>
+                        <p class="product-description">عطر عنبري خشبي زهري للجنسين</p>
+                        <div class="product-price">
+                            <span class="original-price">350 جنيه</span>
+                            <span class="sale-price">249 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Le Beau Le Parfum -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Le Beau Le Parfum">
+                        <div class="product-overlay">
+                            <button class="product-btn" data-product="le_beau">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Le Beau Le Parfum</h3>
+                        <p class="product-description">عطر خشبي فانيليا أروماتيك رجالي</p>
+                        <div class="product-price">
+                            <span class="original-price">350 جنيه</span>
+                            <span class="sale-price">249 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Althair -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Althair">
+                        <div class="product-overlay">
+                            <button class="product-btn" data-product="althair">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Althair</h3>
+                        <p class="product-description">عطر شرقي فانيليا رجالي</p>
+                        <div class="product-price">
+                            <span class="original-price">350 جنيه</span>
+                            <span class="sale-price">249 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Black XS -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Black XS">
+                        <div class="product-overlay">
+                            <button class="product-btn" data-product="black_xs">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Black XS</h3>
+                        <p class="product-description">عطر خشبي أروماتيك رجالي</p>
+                        <div class="product-price">
+                            <span class="original-price">350 جنيه</span>
+                            <span class="sale-price">249 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sauvage -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Sauvage">
+                        <div class="product-overlay">
+                            <button class="product-btn" data-product="sauvage">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Sauvage</h3>
+                        <p class="product-description">عطر أروماتيك فريش رجالي</p>
+                        <div class="product-price">
+                            <span class="original-price">350 جنيه</span>
+                            <span class="sale-price">249 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- One Million -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر One Million">
+                        <div class="product-overlay">
+                            <button class="product-btn" data-product="one_million">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">One Million</h3>
+                        <p class="product-description">عطر أروماتيك سبايسي حلو رجالي</p>
+                        <div class="product-price">
+                            <span class="original-price">350 جنيه</span>
+                            <span class="sale-price">249 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ultra Male -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Ultra Male">
+                        <div class="product-overlay">
+                            <button class="product-btn" data-product="ultra_male">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Ultra Male</h3>
+                        <p class="product-description">عطر فواكه أروماتيك رجالي</p>
+                        <div class="product-price">
+                            <span class="original-price">350 جنيه</span>
+                            <span class="sale-price">249 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Good Girl -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Good Girl">
+                        <div class="product-overlay">
+                            <button class="product-btn" data-product="good_girl">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Good Girl</h3>
+                        <p class="product-description">عطر شرقي زهري نسائي</p>
+                        <div class="product-price">
+                            <span class="original-price">350 جنيه</span>
+                            <span class="sale-price">249 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Burberry Her -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Burberry Her">
+                        <div class="product-overlay">
+                            <button class="product-btn" data-product="burberry_her">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Burberry Her</h3>
+                        <p class="product-description">عطر فاكهي زهري غورماند نسائي</p>
+                        <div class="product-price">
+                            <span class="original-price">350 جنيه</span>
+                            <span class="sale-price">249 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Musk Al Roman -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Musk Al Roman">
+                        <div class="product-overlay">
+                            <button class="product-btn" data-product="musk_al_roman">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Musk Al Roman</h3>
+                        <p class="product-description">عطر فاكهي مسكي للجنسين</p>
+                        <div class="product-price">
+                            <span class="original-price">350 جنيه</span>
+                            <span class="sale-price">249 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yara -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Yara">
+                        <div class="product-overlay">
+                            <button class="product-btn" data-product="yara">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Yara</h3>
+                        <p class="product-description">عطر فاكهي زهري نسائي</p>
+                        <div class="product-price">
+                            <span class="original-price">350 جنيه</span>
+                            <span class="sale-price">249 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Si -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ruwaa_bottle1.jpg" alt="عطر Si">
+                        <div class="product-overlay">
+                            <button class="product-btn" data-product="si">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Si</h3>
+                        <p class="product-description">عطر فواكه زهري نسائي</p>
                         <div class="product-price">
                             <span class="original-price">350 جنيه</span>
                             <span class="sale-price">249 جنيه</span>
@@ -114,54 +333,82 @@
         </div>
     </section>
 
-    <!-- Offers Section -->
-    <section id="offers" class="offers">
-        <div class="container">
-            <h2 class="section-title">عروض رُواء الخاصة</h2>
-            <p class="offers-subtitle">عروض محدودة بمناسبة الإطلاق (لمدة يومين إلى أربعة أيام)</p>
-            <div class="offers-grid">
-                <div class="offer-card">
-                    <div class="offer-badge">عرض القاهرة</div>
-                    <h3>زجاجة واحدة</h3>
-                    <div class="offer-price">
-                        <span class="old-price">350 جنيه</span>
-                        <span class="new-price">249 جنيه</span>
+    <!-- How to Order Section -->
+    <div class="custom-order-section">
+    <div class="container">
+        <h2 class="section-title">هل تبحث عن عطر غير موجود لدينا؟</h2>
+        <div class="custom-order-content">
+            <div class="custom-order-text">
+                <h3>اطلب العطر الذي تريده!</h3>
+                <p>إذا كنت تبحث عن عطر معين غير موجود في موقعنا، يمكنك التواصل معنا مباشرة وسنساعدك في الحصول عليه.</p>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check-circle"></i> طلب أي عطر عالمي ترغب به</li>
+                    <li><i class="fas fa-check-circle"></i> استشارة مجانية لاختيار العطر المناسب لك</li>
+                    <li><i class="fas fa-check-circle"></i> أفضل الأسعار مع ضمان الجودة</li>
+                    <li><i class="fas fa-check-circle"></i> توصيل مجاني لجميع أنحاء مصر</li>
+                </ul>
+            </div>
+            <div class="custom-order-contact">
+                <div class="contact-methods">
+                    <div class="contact-method whatsapp-method">
+                        <i class="fab fa-whatsapp"></i>
+                        <h4>الطلب عبر واتساب</h4>
+                        <p>اضغط على الزر بالأسفل للتواصل مباشرة عبر الواتساب</p>
+                        <a href="https://wa.me/201123983683" class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> تواصل معنا الآن
+                        </a>
                     </div>
-                    <p>خصم خاص لسكان القاهرة</p>
-                </div>
-
-                <div class="offer-card popular">
-                    <div class="offer-badge">الأكثر شعبية</div>
-                    <h3>زجاجتان</h3>
-                    <div class="offer-price">
-                        <span class="old-price">700 جنيه</span>
-                        <span class="new-price">599 جنيه</span>
+                    <div class="contact-method phone-method">
+                        <i class="fas fa-phone-alt"></i>
+                        <h4>الاتصال المباشر</h4>
+                        <p>يمكنك الاتصال بنا مباشرة على الرقم:</p>
+                        <a href="tel:+201123983683" class="phone-btn">
+                            <i class="fas fa-phone-alt"></i> 01123983683
+                        </a>
                     </div>
-                    <p>وفر 101 جنيه</p>
-                </div>
-
-                <div class="offer-card">
-                    <div class="offer-badge">عرض مميز</div>
-                    <h3>ثلاث زجاجات</h3>
-                    <div class="offer-price">
-                        <span class="old-price">1050 جنيه</span>
-                        <span class="new-price">799 جنيه</span>
-                    </div>
-                    <p>وفر 251 جنيه</p>
-                </div>
-
-                <div class="offer-card best-value">
-                    <div class="offer-badge">أفضل قيمة</div>
-                    <h3>أربع زجاجات + هدية</h3>
-                    <div class="offer-price">
-                        <span class="old-price">1750 جنيه</span>
-                        <span class="new-price">1399 جنيه</span>
-                    </div>
-                    <p>زجاجة إضافية مجانًا + وفر 351 جنيه</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
+
+    <!-- Product Modals -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modal-product-image" src="" alt="صورة العطر">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-product-title"></h2>
+                    <p id="modal-product-description"></p>
+                    
+                    <div class="product-details">
+                        <h3>تفاصيل العطر:</h3>
+                        <ul id="modal-product-details"></ul>
+                    </div>
+                    
+                    <div class="product-pricing">
+                        <h3>الأسعار والعروض:</h3>
+                        <div class="price-info">
+                            <span class="original-price">السعر الأصلي: <span id="modal-original-price"></span></span>
+                            <span class="sale-price">السعر بعد الخصم: <span id="modal-sale-price"></span></span>
+                        </div>
+                        <div class="offers-info" id="modal-offers-info"></div>
+                    </div>
+                    
+                    <div class="order-now">
+                        <h3>للطلب الآن:</h3>
+                        <a href="https://wa.me/201123983683" class="whatsapp-order-btn">
+                            <i class="fab fa-whatsapp"></i> اطلب عبر الواتساب
+                        </a>
+                        <p>أو اتصل بنا مباشرة على: <strong>01123983683</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -192,7 +439,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="images/ruwaa_bottle1.jpg" alt="عن رُواء">
+                    <img src="images/ruwaa_logo.png" alt="عن رُواء">
                 </div>
             </div>
         </div>
@@ -208,7 +455,7 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h3>البريد الإلكتروني</h3>
-                            <p>info@ruwaa.com</p>
+                            <p>alihmdy777@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -263,7 +510,7 @@
                     <ul>
                         <li><a href="#home">الرئيسية</a></li>
                         <li><a href="#products">المنتجات</a></li>
-                        <li><a href="#offers">العروض</a></li>
+                        <li><a href="#order">كيفية الطلب</a></li>
                         <li><a href="#about">من نحن</a></li>
                         <li><a href="#contact">اتصل بنا</a></li>
                     </ul>
@@ -273,7 +520,7 @@
                     <div class="social-links">
                         <a href="https://www.instagram.com/ruwaa_81?igsh=MWEzM3MxbzlpZDE1eA==" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="https://chat.whatsapp.com/Fs7Nkjnx6w03YtBmGA4fdP" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/ali.hamdy.abdelmokhtader/"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
             </div>
@@ -286,4 +533,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
