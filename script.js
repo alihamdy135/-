@@ -45,9 +45,7 @@ const modalTitle = document.getElementById('modal-product-title');
 const modalDescription = document.getElementById('modal-product-description');
 const modalImage = document.getElementById('modal-product-image');
 const modalDetails = document.getElementById('modal-product-details');
-const modalOriginalPrice = document.getElementById('modal-original-price');
 const modalSalePrice = document.getElementById('modal-sale-price');
-const modalOffersInfo = document.getElementById('modal-offers-info');
 const closeModal = document.querySelector('.close-modal');
 
 // Product Data
@@ -55,7 +53,7 @@ const products = {
     khamrah: {
         title: 'Khamrah',
         description: 'عطر شرقي سبايسي للجنسين مع مزيج فريد من الروائح الشرقية والخشبية',
-        image: 'images/khamrah.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: شرقي سبايسي للجنسين',
             'المقدمة: قرفة - جوزة الطيب - برغموت',
@@ -64,35 +62,24 @@ const products = {
             'الرائحة: حلوة شرقية - دافئة',
             'الثبات: ممتاز جدًا (8–10 ساعات)'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات',
-            'عرض الهدية مع كل طلب فوق 500 جنيه'
-        ]
+        price: '400 جنيه'
     },
     bianco_latte: {
         title: 'Bianco Latte',
         description: 'عطر غورماند كريمي للجنسين مع نفحات من الفانيليا والكراميل',
-        image: 'images/bianco_latte.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: غورماند كريمي للجنسين',
             'المكونات: كراميل - عسل - فانيليا - مسك أبيض - كومارين',
             'الرائحة: حليب كراميل غني',
             'الثبات: ممتاز جدًا - يدوم ليوم كامل'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
+        price: '400 جنيه'
     },
     acqua_di_gio: {
         title: 'Acqua di Giò',
         description: 'عطر أكواتيك أروماتيك رجالي منعش وأنيق',
-        image: 'images/acqua_di_gio.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: أكواتيك أروماتيك رجالي',
             'المقدمة: ليمون - ماندرين - نيرولي',
@@ -101,17 +88,12 @@ const products = {
             'الرائحة: منعشة، صيفية، أنيقة',
             'الثبات: متوسط إلى جيد (5–7 ساعات)'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
+        price: '400 جنيه'
     },
     baccarat_rouge: {
         title: 'Baccarat Rouge 540',
         description: 'عطر عنبري خشبي زهري للجنسين مع لمسة من الفخامة',
-        image: 'images/baccarat_rouge.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: عنبري خشبي زهري للجنسين',
             'المقدمة: زعفران - ياسمين',
@@ -120,17 +102,12 @@ const products = {
             'الرائحة: حلوة عنبرية - مميزة جدًا',
             'الثبات: قوي جدًا وفوّاح (10+ ساعات)'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
+        price: '400 جنيه'
     },
     le_beau: {
         title: 'Le Beau Le Parfum',
         description: 'عطر خشبي فانيليا أروماتيك رجالي مع لمسة أنيقة',
-        image: 'images/le_beau.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: خشبي فانيليا أروماتيك رجالي',
             'المقدمة: أناناس - إبرة الراعي - زنجبيل',
@@ -139,17 +116,12 @@ const products = {
             'الرائحة: فاكهية ناعمة مع لمسة فاخرة',
             'الثبات: ممتاز'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
+        price: '400 جنيه'
     },
     althair: {
         title: 'Althair',
         description: 'عطر شرقي فانيليا رجالي مع لمسة دافئة وجذابة',
-        image: 'images/althair.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: شرقي فانيليا رجالي',
             'المقدمة: فانيليا - برغموت - قرفة',
@@ -158,17 +130,12 @@ const products = {
             'الرائحة: فانيليا فاخرة رجولية',
             'الثبات: ممتاز وفاخر'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
+        price: '400 جنيه'
     },
     black_xs: {
         title: 'Black XS',
         description: 'عطر خشبي أروماتيك رجالي مع لمسة داكنة وجذابة',
-        image: 'images/black_xs.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: خشبي أروماتيك رجالي',
             'المقدمة: ليمون - القرفة',
@@ -177,17 +144,12 @@ const products = {
             'الرائحة: حلوة داكنة - شبابية',
             'الثبات: جيد جدًا'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
+        price: '400 جنيه'
     },
     sauvage: {
         title: 'Sauvage',
         description: 'عطر أروماتيك فريش رجالي مع لمسة منعشة وقوية',
-        image: 'images/sauvage.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: أروماتيك فريش رجالي',
             'المقدمة: البرغموت',
@@ -196,36 +158,12 @@ const products = {
             'الرائحة: قوية، ذكورية، منعشة',
             'الثبات: ممتاز جدًا'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
-    },
-    one_million: {
-        title: 'One Million',
-        description: 'عطر أروماتيك سبايسي حلو رجالي مع لمسة جذابة',
-        image: 'images/one_million.jpg',
-        details: [
-            'النوع: أروماتيك سبايسي حلو رجالي',
-            'المقدمة: ماندارين - نعناع',
-            'القلب: القرفة - الورد',
-            'القاعدة: عنبر - جلد - أخشاب',
-            'الرائحة: حلوة جذابة',
-            'الثبات: قوي جدًا'
-        ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
+        price: '400 جنيه'
     },
     ultra_male: {
         title: 'Ultra Male',
         description: 'عطر فواكه أروماتيك رجالي مع لمسة شبابية',
-        image: 'images/ultra_male.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: فواكه أروماتيك رجالي',
             'المقدمة: كمثرى - لافندر - نعناع',
@@ -234,17 +172,12 @@ const products = {
             'الرائحة: جذابة شبابية',
             'الثبات: ممتاز'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
+        price: '400 جنيه'
     },
     good_girl: {
         title: 'Good Girl',
         description: 'عطر شرقي زهري نسائي مع لمسة مثيرة',
-        image: 'images/good_girl.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: شرقي زهري نسائي',
             'المقدمة: قهوة - لوز - برغموت',
@@ -253,17 +186,12 @@ const products = {
             'الرائحة: قوية، أنثوية، مثيرة',
             'الثبات: ممتاز جدًا'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
+        price: '400 جنيه'
     },
     burberry_her: {
         title: 'Burberry Her',
         description: 'عطر فاكهي زهري غورماند نسائي مع لمسة جذابة',
-        image: 'images/burberry_her.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: فاكهي زهري غورماند نسائي',
             'المقدمة: فراولة - توت - كشمش أسود',
@@ -272,17 +200,12 @@ const products = {
             'الرائحة: فاكهية حلوة جذابة',
             'الثبات: جيد جدًا إلى ممتاز'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
+        price: '400 جنيه'
     },
     musk_al_roman: {
         title: 'Musk Al Roman',
         description: 'عطر فاكهي مسكي للجنسين مع لمسة دافئة',
-        image: 'images/musk_al_roman.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: فاكهي مسكي للجنسين',
             'المقدمة: رمان - كرز - توت - نعناع',
@@ -291,17 +214,12 @@ const products = {
             'الرائحة: فاكهية دافئة',
             'الثبات: جيد جدًا'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
+        price: '400 جنيه'
     },
     yara: {
         title: 'Yara',
         description: 'عطر فاكهي زهري نسائي مع لمسة ناعمة',
-        image: 'images/yara.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: فاكهي زهري نسائي',
             'المقدمة: أوركيد - ماندرين - زهور',
@@ -310,17 +228,12 @@ const products = {
             'الرائحة: حلوة، ناعمة، أنثوية',
             'الثبات: جيد جدًا'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
+        price: '400 جنيه'
     },
     si: {
         title: 'Si',
         description: 'عطر فواكه زهري نسائي مع لمسة أنيقة',
-        image: 'images/si.jpg',
+        image: 'images/ruwaa_bottle1.jpg',
         details: [
             'النوع: فواكه زهري نسائي',
             'المقدمة: الكشمش الأسود',
@@ -329,12 +242,21 @@ const products = {
             'الرائحة: ناعمة أنثوية - أنيقة',
             'الثبات: متوسط إلى قوي'
         ],
-        originalPrice: '350 جنيه',
-        salePrice: '249 جنيه',
-        offers: [
-            'عرض خاص: خصم 30% على الزجاجة الأولى',
-            'عرض التوصيل المجاني لجميع المحافظات'
-        ]
+        price: '400 جنيه'
+    },
+    shiroti: {
+        title: 'Shiroti',
+        description: 'عطر شرقي خشبي للجنسين مع لمسة عصرية وجذابة',
+        image: 'images/ruwaa_bottle1.jpg',
+        details: [
+            'النوع: شرقي خشبي للجنسين',
+            'المقدمة: زعفران - جوزة الطيب - برغموت',
+            'القلب: خشب الصندل - عنبر - مسك',
+            'القاعدة: فانيليا - باتشولي - أخشاب دافئة',
+            'الرائحة: شرقية دافئة مع لمسة عصرية',
+            'الثبات: ممتاز (8-10 ساعات)'
+        ],
+        price: '400 جنيه'
     }
 };
 
@@ -347,12 +269,10 @@ document.querySelectorAll('.product-btn').forEach(button => {
         modalTitle.textContent = product.title;
         modalDescription.textContent = product.description;
         modalImage.src = product.image;
-        modalOriginalPrice.textContent = product.originalPrice;
-        modalSalePrice.textContent = product.salePrice;
+        modalSalePrice.textContent = product.price;
         
         // Clear previous details
         modalDetails.innerHTML = '';
-        modalOffersInfo.innerHTML = '';
         
         // Add product details
         product.details.forEach(detail => {
@@ -360,21 +280,6 @@ document.querySelectorAll('.product-btn').forEach(button => {
             li.textContent = detail;
             modalDetails.appendChild(li);
         });
-        
-        // Add offers if available
-        if (product.offers && product.offers.length > 0) {
-            const offersTitle = document.createElement('h4');
-            offersTitle.textContent = 'العروض المتاحة:';
-            modalOffersInfo.appendChild(offersTitle);
-            
-            const offersList = document.createElement('ul');
-            product.offers.forEach(offer => {
-                const li = document.createElement('li');
-                li.textContent = offer;
-                offersList.appendChild(li);
-            });
-            modalOffersInfo.appendChild(offersList);
-        }
         
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
